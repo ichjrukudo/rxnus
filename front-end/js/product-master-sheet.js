@@ -1,16 +1,24 @@
 $(document).ready(function () {
+    makeRequest("GET", "http://localhost:6789/api/product/1", renderData);
+});
+
+function renderData(data) {
+    alert(data);
+    $('#id').text(data.ID);
+    $('#code').text(data.Code);
+    $('#name').text(data.Name);
+}
+
+function makeRequest(type, url, callBack) {
     $.ajax({
-        type: "GET",
+        type: type,
         dataType: "json",
-        url: "http://localhost:6789/api/product/1",
+        url: url,
         success: function (data) {
-            alert(data);
-            $('#id').text(data.ID);
-            $('#code').text(data.Code);
-            $('#name').text(data.Name);
+            callBack(data);
         },
         error: function (e) {
             debugger;
         }
     });
-});
+}
