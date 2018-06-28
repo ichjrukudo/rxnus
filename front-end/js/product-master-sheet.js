@@ -1,29 +1,35 @@
-$(document).ready(function () {
-    makeRequest("GET", "http://localhost:6789/api/product/1").then( data => {
-        console.log(data);
-    }).catch(err => {
-        console.log(err);
-    });
-});
-
-function renderData(data) {
-    alert(data);
-    $('#id').text(data.ID);
-    $('#code').text(data.Code);
-    $('#name').text(data.Name);
+function setValueForm(data){
+  console.log(data);
+  $('[name="code"]').val(data.code);
+  $('[name="width"]').val(data.width);
+  $('[name="height"]').val(data.height);
+  $('[name="length"]').val(data.length);
+  $('[name="cube"]').val(data.cube);
 }
 
-function makeRequest(type, url, callBack) {
-    return new Promise((resolve, reject)=> {
-         $.ajax({
-            type: type,
-            dataType: "json",
-            url: url,
-            success: (data, status, res) => {
-                console.log(res)
-                return resolve(data)
-            },
-            error: (err) => reject(err)
-        });
-    } )
-}
+$(document).ready(() => {
+  $("#expiration").datepicker();
+  $('#icode').autocomplete({
+    source: 'http://localhost:6789/api/product',
+    minLength: 2,
+    select: function (event, ui) {
+      var data = {
+        code: 1000,
+        width: 12.00,
+        height: 10.01,
+        length: 3.00,
+        cube: 360.01
+      }
+      setValueForm(data);
+      console.log("Selected: " + ui.item.value + " aka " + ui.item.id);
+    }
+  });
+  $('[name="code_cost"]').mask('ZZZZ-ZZ-ZZ', {
+    placeholder: '____-__-__',
+    translation: {
+      'Z': {
+        pattern: /[0-9]/, optional: true
+      }
+    }
+  })
+})

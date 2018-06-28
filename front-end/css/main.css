@@ -1,0 +1,86 @@
+main {
+	max-width: 1100px;
+	width: 100%;
+	margin: 20px auto;
+}
+.text-on-pannel {
+  background: #fff none repeat scroll 0 0;
+  height: auto;
+  margin-left: 20px;
+  padding: 3px 10px;
+  position: absolute;
+  margin-top: -47px;
+}
+
+.panel {
+  /* for text on pannel */
+  margin-top: 27px !important;
+}
+
+.panel-body {
+  padding-top: 30px !important;
+}
+.form-group {
+  padding: 20px 0;
+}
+.btn__container {
+  height: 100%;
+  vertical-align: middle;
+}
+.btn__container button {
+  display: block;
+  margin: 30px 0;
+}
+.panel {
+  border: 1px solid #ddd;
+}
+.media-object {
+  width: 170px;
+  height: 182px;
+}
+.detail__container {
+  margin-top: 20px;
+}
+.nav-tabs.nav-justified>.active>a, .nav-tabs.nav-justified>.active>a:hover, .nav-tabs.nav-justified>.active>a:focus {
+    border: 1px solid #ddd;
+}
+.nav-tabs.nav-justified>li>a {
+    border-bottom: 1px solid #ddd;
+}
+.nav-tabs.nav-justified>li>a {
+    border-radius: 13px 13px 0 0;
+}
+.nav-tabs.nav-justified>.active>a, .nav-tabs.nav-justified>.active>a:hover, .nav-tabs.nav-justified>.active>a:focus {
+    border-bottom-color: #fff;
+}
+.submit__container {
+  margin-top: 10px;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+.title--page {
+  font-weight: bolder;
+  text-align: center;
+}
+.table__container {
+  padding-top: 10px;
+}
+#code {
+  position: relative;
+}
+#code::after {
+  content: "▼";
+  padding: 8px 8px;
+  position: absolute;
+  opacity: .5;
+  right: 5px;
+  top: 0;
+  z-index: 1;
+  text-align: center;
+  width: 10%;
+  height: 100%;
+  pointer-events: none; 
+}
+.ui-autocomplete-loading {
+  background: white url("./img/ui-anim_basic_16x16.gif") right center no-repeat;
+}

@@ -3,10 +3,206 @@
 <head>
 	<title>Retail change</title>
 	<link rel="stylesheet" type="text/css" href="./css/core/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./vendor/jquery-ui/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
 	<script type="text/javascript" src="./js/core/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/core/jquery.mask.min.js"></script>
 	<script type="text/javascript" src="./js/core/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./vendor/jquery-ui/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="./js/product-master-sheet.js"></script>
 </head>
 <body>
+	<main>
+		<h4 class="title--page">PRODUCT MASTER SHEET</h4>
+		<form>
+			<div class="panel">
+			    <div class="panel-body">
+			      <h5 class="text-on-pannel">Product master</h3>
+			      <div>
+			      	<div class="row">
+			      		<div class="col-md-8">
+			      			<div class="form-group">
+			      				<label class="col-md-3">Product number</label>
+			      				<div class="col-md-5 ui-widget" id="code">
+			      					<input class="form-control" id="icode" placeholder="Mã sản phẩm"></input>
+			      				</div>
+			      				<label class="col-md-2">Pack size</label>
+			      				<div class="col-md-2">
+			      					<input class="form-control" placeholder=""></input>
+			      				</div>
+			      			</div>
+			      			<div class="form-group">
+			      				<div class="col-md-3">
+			      					<label class="label-control">Description</label>
+			      				</div>
+			      				<div class="col-md-9">
+			      					<textarea rows="9" class="form-control"></textarea>
+			      				</div>
+			      			</div>
+			      		</div>
+			      		<div class="col-md-4">
+			      			<div class="panel">
+			      				<div class="panel-body">
+			      					<h6 class="text-on-pannel">Product image</h6>
+			      					<div class="media">
+									  <div class="media-left">
+									    <a href="#">
+									      <img class="media-object" src="./img/cup.jpg" alt="...">
+									    </a>
+									  </div>
+									  <div class="media-body">
+									    <div class="btn__container">
+									    	<button type="button" class="btn btn-primary">Browser Logo</button>
+									    	<button type="button" class="btn btn-danger">Discard Logo</button>
+									    </div>
+									  </div>
+									</div>
+			      				</div>
+			      			</div>
+			      			
+			      		</div>	
+			      	</div>
+			      	<div class="detail__container">
+			      		<ul class="nav nav-tabs nav-justified">
+						  <li class="active"><a data-toggle="tab" href="#home">Basic information</a></li>
+						  <li><a data-toggle="tab" href="#menu1">Inverntory</a></li>
+						</ul>
 
+						<div class="tab-content">
+						  <div id="home" class="tab-pane fade in active">
+						    <div class="row">
+						    	<div class="col-md-6">
+					    		 	<div class="checkbox form-group">
+					    		 		<div class="col-md-12">
+					    		 			<label>
+										      <input type="checkbox"> Hazardout Meterial?
+										    </label>
+					    		 		</div>
+								  	</div>
+						    		<div class="form-group">
+						    			<label class="col-md-4">Code center cost</label>
+						    			<div class="col-md-8">
+						    				<input type="text" class="form-control" name="code_cost">
+						    			</div>
+						    		</div>
+						    		<div class="form-group">
+						    			<label class="col-md-4">Expiration date</label>
+						    			<div class="col-md-8">
+						    				<div class="input-group">
+						    					<input type="text" id="expiration" name="expiration_date" class="form-control" name="">
+							    				<span class="input-group-addon" id="basic-addon2">
+							    					<i class="glyphicon glyphicon-calendar"></i>
+							    				</span>
+						    				</div>
+						    			</div>
+						    		</div>
+						    		<div class="form-group">
+						    			<label class="col-md-4">Unit price</label>
+						    			<div class="col-md-8">
+						    				<input type="text" onchange="this.value = parseFloat(this.value).toFixed(2)" class="form-control" name="unit_price" style="text-align: right; float: right;">
+						    			</div>
+						    		</div>
+						    	</div>
+						    	<div class="col-md-6">
+						    		<div class="form-group">
+						    			<label class="col-md-4">Width</label>
+						    			<div class="col-md-8">
+						    				<input type="text" onchange="this.value = parseFloat(this.value).toFixed(2)" class="form-control" name="width" style="text-align: right; float: right;">
+						    			</div>
+						    		</div>
+						    		<div class="form-group">
+						    			<label class="col-md-4">Length</label>
+						    			<div class="col-md-8">
+						    				<input type="text" onchange="this.value = parseFloat(this.value).toFixed(2)" class="form-control" name="length" style="text-align: right; float: right;">
+						    			</div>
+						    		</div>
+						    		<div class="form-group">
+						    			<label class="col-md-4">Height</label>
+						    			<div class="col-md-8">
+						    				<input type="text" onchange="this.value = parseFloat(this.value).toFixed(2)" class="form-control" name="height" style="text-align: right; float: right;">
+						    			</div>
+						    		</div>
+						    		<div class="form-group">
+						    			<label class="col-md-4">Cube</label>
+						    			<div class="col-md-8">
+						    				<input type="text" onchange="this.value = parseFloat(this.value).toFixed(2)" class="form-control" name="cube" style="text-align: right; float: right;">
+						    			</div>
+						    		</div>
+						    		<div class="form-group">
+						    			<label class="col-md-4">
+						    				<div class="checkbox">
+						    		 			<label>
+											      <input type="checkbox"> Pre-pack?
+											    </label>
+										  	</div>
+						    			</label>
+						    			<div class="col-md-8">
+						    				<select class="form-control">
+						    					<option value="1">Solid Style</option>
+						    					<option value="2">Hard Style</option>
+						    				</select>
+						    			</div>
+						    		</div>
+						    	</div>
+						    </div>
+						  </div>
+						  <div id="menu1" class="tab-pane fade">
+						  	<div class="table__container">
+						  		<table class="table table-bordered">
+							    <thead>
+							      <tr>
+							        <th>Location</th>
+							        <th>On-Hand</th>
+							        <th>On-Hand Pcs</th>
+							        <th>Allocated</th>
+							        <th>Allocated Pcs</th>
+							        <th>Available</th>
+							        <th>Available Pcs</th>
+							      </tr>
+							    </thead>
+							    <tbody>
+							      <tr>
+							      	<td>CAT</td>
+							        <td>10</td>
+							        <td>120</td>
+							        <td>3</td>
+							        <td>36</td>
+							        <td>7</td>
+							        <td>84</td>
+							      </tr>
+							       <tr>
+							      	<td>CAT</td>
+							        <td>10</td>
+							        <td>120</td>
+							        <td>3</td>
+							        <td>36</td>
+							        <td>7</td>
+							        <td>84</td>
+							      </tr>
+							    </tbody>
+							    <tfoot>
+							    	<th>All site</th>
+							        <th>20</th>
+							        <th>240</th>
+							        <th>6</th>
+							        <th>72</th>
+							        <th>14</th>
+							        <th>168</th>
+							    </tfoot>
+							  </table>
+						  	</div>
+						  </div>
+						</div>
+			      	</div>
+			      	<div class="submit__container">
+			      		<button type="sumit" class="btn btn-primary">
+			      			<span class="glyphicon glyphicon-floppy-save"></span> Save
+			      		</button>
+			      	</div>
+			      </div>
+			    </div>
+		  	</div>
+		</form>
+	</main>
 </body>
 </html>
