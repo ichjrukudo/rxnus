@@ -1,5 +1,5 @@
+const base = 'http://localhost:6789/api';
 function setValueForm(data){
-  console.log(data);
   $('[name="code"]').val(data.code);
   $('[name="width"]').val(data.width);
   $('[name="height"]').val(data.height);
@@ -7,21 +7,28 @@ function setValueForm(data){
   $('[name="cube"]').val(data.cube);
 }
 
+function post(data) {
+  return  $.post(`${base}/itemmasters`, data);
+}
+function senData(e){
+  e.preventDefault();
+  var data = $('#rxnForm').serializeArray(), obj = {};
+  $.each(data, (i, item) => {
+    obj[item.name] = item.value
+  })
+  post(obj).then(res => console.log(res));
+}
 $(document).ready(() => {
   $("#expiration").datepicker();
-  $('#icode').autocomplete({
-    source: 'http://localhost:6789/api/product',
+  $('#ItemMasterID_PK').autocomplete({
+    source: `${base}/search`,
     minLength: 2,
     select: function (event, ui) {
-      var data = {
-        code: 1000,
-        width: 12.00,
-        height: 10.01,
-        length: 3.00,
-        cube: 360.01
-      }
-      setValueForm(data);
-      console.log("Selected: " + ui.item.value + " aka " + ui.item.id);
+      $.get(`${base}/itemmasters/${ui.item.value}`).then(res => {
+        $.each( res, function( key, value ) {
+          $(`[name=${key}]`).val(value);
+        });
+      })
     }
   });
   $('[name="code_cost"]').mask('ZZZZ-ZZ-ZZ', {

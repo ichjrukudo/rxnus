@@ -19,6 +19,13 @@ namespace WebAPI.Controllers
     {
         private ApplicationContext db = new ApplicationContext();
 
+		[Route("api/search")]
+		[HttpGet]
+		public IList<string> searchCode()
+		{
+			string value = Request.GetQueryNameValuePairs().ElementAt(0).Value;
+			return db.ItemMasters.Where(item => item.ItemMasterID_PK.Contains(value)).Select(item => item.ItemMasterID_PK).ToList();
+		} 
         // GET: api/ItemMasters
         public IHttpActionResult GetItemMasters()
         {
@@ -75,6 +82,7 @@ namespace WebAPI.Controllers
 
         // POST: api/ItemMasters
         [ResponseType(typeof(ItemMaster))]
+		[HttpPost]
         public IHttpActionResult PostItemMaster(ItemMaster itemMaster)
         {
             if (!ModelState.IsValid)
